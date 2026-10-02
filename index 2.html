@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>履修相談マニュアル電子版</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+<style>
+:root{--bg:#eef1f6;--fg:#1b2233;--card:#fff;--line:#d3d9e5;--mut:#667089;--acc:#2b4c9b;--accfg:#fff;--on:#e0a100}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12161f;--fg:#e6e9f2;--card:#1c2230;--line:#323b50;--mut:#98a2bb;--acc:#8aa8f0;--accfg:#10162a;--on:#f2b705}}
+:root[data-theme="dark"]{--bg:#12161f;--fg:#e6e9f2;--card:#1c2230;--line:#323b50;--mut:#98a2bb;--acc:#8aa8f0;--accfg:#10162a;--on:#f2b705}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.65 -apple-system,"Hiragino Sans","Noto Sans JP",sans-serif}
+.wrap{max-width:900px;margin:0 auto;padding:16px 12px 40px}
+h1{font-size:20px;margin:0 0 4px;letter-spacing:.02em}
+.sub{color:var(--mut);font-size:12.5px;margin:0 0 12px}
+button,select,input,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+.btn{border:1px solid var(--line);background:var(--card);border-radius:8px;padding:6px 12px;font-size:13px}
+.btn.pri{background:var(--acc);color:var(--accfg);border-color:var(--acc)}
+.btn.dng{color:#c0392b;border-color:#c0392b}
+.bar{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0 0 10px}
+.bar input{border:1px solid var(--line);background:var(--card);border-radius:8px;padding:6px 10px;width:150px}
+.tabs{display:flex;gap:0;border-bottom:2px solid var(--line);margin-bottom:12px}
+.tabs button{flex:1;border:0;background:none;padding:9px 4px;font-weight:600;color:var(--mut);border-bottom:3px solid transparent;margin-bottom:-2px}
+.tabs button.on{color:var(--acc);border-bottom-color:var(--acc)}
+.hid{display:none!important}
+table{width:100%;border-collapse:collapse;table-layout:fixed;background:var(--card)}
+th,td{border:1px solid var(--line);padding:2px}
+th{font-size:12px;color:var(--mut);background:var(--bg);font-weight:600}
+thead th:first-child,tbody th{width:26px}
+td{height:76px;vertical-align:top}
+td.over{outline:2px solid var(--acc);outline-offset:-2px}
+.card{border-radius:6px;padding:3px 4px;margin-bottom:2px;font-size:10.5px;line-height:1.3;color:#1a1a1a;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;word-break:break-all}
+.card b{display:block;font-weight:600}
+.card small{font-size:9.5px;opacity:.8}
+.legend{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0;font-size:11px}
+.legend span{padding:1px 8px;border-radius:99px;color:#1a1a1a}
+.note{font-size:11.5px;color:var(--mut);margin-top:10px}
+.pills{display:flex;gap:6px;margin-bottom:10px}
+.pills button{border:1px solid var(--line);background:var(--card);border-radius:99px;padding:4px 14px;font-size:13px}
+.pills button.on{background:var(--acc);color:var(--accfg);border-color:var(--acc)}
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;margin-bottom:8px}
+summary{padding:10px 12px;cursor:pointer;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary b{display:block;font-size:15px}
+summary span{font-size:12.5px;color:var(--mut)}
+details[open] summary{border-bottom:1px solid var(--line)}
+dl{margin:0;padding:8px 12px 10px;font-size:13.5px}
+dt{font-weight:600;color:var(--acc);font-size:12px;margin-top:6px}
+dd{margin:0}
+#md{position:fixed;inset:0;background:rgba(10,14,25,.5);display:flex;align-items:flex-end;justify-content:center;z-index:50}
+.sheet{background:var(--card);width:100%;max-width:560px;max-height:92%;overflow:auto;border-radius:16px 16px 0 0;padding:16px 14px calc(16px + env(safe-area-inset-bottom,0px))}
+.sheet label{display:block;font-size:12px;color:var(--mut);margin:10px 0 2px}
+.sheet input,.sheet select,.sheet textarea{width:100%;border:1px solid var(--line);background:var(--bg);border-radius:8px;padding:7px 9px}
+.sheet textarea{min-height:60px}
+.row{display:flex;gap:8px}.row>div{flex:1}
+.stars button{border:0;background:none;font-size:26px;color:var(--line);padding:0 2px}
+.stars button.on{color:var(--on)}
+.acts{display:flex;gap:8px;margin-top:14px;justify-content:flex-end}
+#ex{width:100%;height:90px;margin-bottom:10px}
+@media print{.noprint{display:none!important}body{background:#fff}}
+
+:root:root:root{--bg:#f8f7fb;--fg:#24203a;--card:#fff;--line:#e4e1ee;--mut:#6f6a86;--acc:#4f2f8f;--accfg:#fff;--on:#4f2f8f;color-scheme:light}
+[data-lv="神単"]{--c:#e2b64a;--b:#f8edc9;--t:#8a6a10}[data-lv="楽単"]{--c:#6cc3a0;--b:#d9f1e6;--t:#2b7656}[data-lv="準楽単"]{--c:#6b8fe8;--b:#dde6fb;--t:#3453b0}[data-lv="厳単"]{--c:#ee9aa6;--b:#fbdde1;--t:#a93a49}
+.wrap{padding-bottom:96px}
+.hd{text-align:center;border-bottom:2px solid var(--acc);padding:6px 0 10px;margin-bottom:12px}
+h1{font-family:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;font-weight:700;font-size:21px;margin:0}
+.hd .sub{margin:2px 0 0}
+.info{background:#ece8f6;color:var(--acc);border-radius:6px;padding:10px 12px;font-size:12.5px;margin-bottom:10px}
+.bar{flex-wrap:nowrap}#lg{display:flex;flex:1}#lg input{flex:1;width:auto;border-radius:6px 0 0 6px;padding:10px}#lg .btn{border-radius:0 6px 6px 0;padding:10px 18px}
+.tabs button{font-weight:500}.tabs button.on{font-weight:700}
+th{background:#f1eff6}td{height:64px;background:var(--card)}
+.card[data-lv]{background:#e8e2f6;color:#3d2578;border-radius:5px}
+.card small{opacity:1}.card small::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--c);margin-right:3px}
+.legend{gap:14px;font-size:12px}.legend span[data-lv]{background:none;color:var(--mut);padding:0;display:flex;align-items:center;gap:5px}
+.legend span::before{content:"";width:12px;height:12px;border-radius:50%;background:var(--c)}
+details{border-left:5px solid var(--acc);border-radius:6px;box-shadow:0 1px 4px rgba(60,40,110,.07)}
+summary{display:flex;justify-content:space-between;align-items:center;gap:8px}
+summary b{font-family:"Shippori Mincho","Hiragino Mincho ProN",serif;font-size:19px}
+.rt{display:flex;align-items:center;gap:6px;flex:none}
+.bd{font-style:normal;font-size:12px;padding:2px 10px;border-radius:99px;background:var(--b);color:var(--t)}
+.fv{border:0;background:none;font-size:22px;color:var(--mut);padding:0 2px}.fv.on{color:var(--acc)}.fv.on::before{content:"♥";position:absolute;margin-left:0}.fv.on{font-size:0}.fv.on::before{font-size:22px}
+dt{font-size:13px;border-left:3px solid var(--acc);padding-left:6px;margin-top:10px}
+.nav{position:fixed;left:0;right:0;bottom:0;display:flex;background:#fff;border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px);z-index:40}
+.nav button{flex:1;border:0;background:none;padding:6px 0 8px;font-size:10.5px;color:var(--mut);border-top:3px solid transparent}
+.nav button u{display:block;text-decoration:none;font-size:20px;line-height:1.2}
+.nav button.on{color:var(--acc);border-top-color:var(--acc)}
+#q{width:100%;border:1px solid var(--line);background:#fff;border-radius:8px;padding:10px 12px;margin-bottom:10px}
+.mypanel{background:#fff;border:1px solid var(--line);border-radius:8px;padding:14px;font-size:14px}
+
+.wrap{padding-bottom:40px}
+.hd{text-align:left;padding:4px 0 8px}
+h1,summary b{font-family:inherit;font-weight:800;font-size:21px;letter-spacing:0}
+summary b{font-size:16px}
+#tm{position:fixed;inset:0;background:rgba(10,14,25,.5);display:flex;align-items:flex-end;justify-content:center;z-index:50}
+.ed{padding:3px 10px;font-size:12px}
+#toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#24203a;color:#fff;padding:10px 14px;border-radius:8px;z-index:70;max-width:90%;font-size:13px}
+</style></head>
+<body><div class="wrap">
+<div class="hd"><h1>履修相談マニュアル電子版</h1></div>
+<div class="info noprint">ⓘ　誰でも閲覧できます。編集は管理者パスワードを入力した作成者のみ可能です。</div>
+
+<div class="bar noprint" id="bar">
+  <span id="lg"><input id="pw" type="password" placeholder="管理者パスワード"> <button class="btn pri" id="go">開く</button></span>
+  <span id="ad" class="hid" style="display:contents"></span>
+</div>
+<textarea id="ex" class="hid" readonly></textarea>
+
+<div id="home">
+<div class="tabs noprint" id="tabs">
+  <button data-t="tt" class="on">時間割</button><button data-t="san">三法</button><button data-t="nichi">法日</button><button data-t="lang">言語</button>
+</div>
+
+<section id="tt">
+  <div id="grid"></div>
+  <div class="legend"><span data-lv="神単">神単</span><span data-lv="楽単">楽単</span><span data-lv="準楽単">準楽単</span><span data-lv="厳単">厳単</span></div>
+  <p class="note noprint" id="hint">コマをタップすると評価を見られます。</p>
+</section>
+<section id="man" class="hid"></section>
+</div>
+<p class="note">※記載は履修者の主観的な感想に基づく参考情報です。年度・担当教員により変わる場合があります。</p>
+</div>
+
+<div id="tm" class="hid"><div class="sheet">
+<div class="row"><div><label>区分</label><select id="t-c"><option value="san">三法</option><option value="nichi">法日</option><option value="lang">言語</option></select></div><div><label>科目</label><input id="t-s" list="t-sl"><datalist id="t-sl"></datalist></div></div>
+<label>教授名</label><input id="t-n">
+<label>楽単度</label><select id="t-l"><option value="">未設定</option><option>神単</option><option>楽単</option><option>準楽単</option><option>厳単</option></select>
+<label>総評（一言）</label><textarea id="t-m"></textarea>
+<label>評価・テスト</label><textarea id="t-r"></textarea>
+<label>対策</label><textarea id="t-t"></textarea>
+<div class="acts"><button class="btn dng hid" id="t-del">削除</button><button class="btn" id="t-cl">閉じる</button><button class="btn pri" id="t-sv">保存</button></div></div></div>
+<div id="toast" class="hid"></div>
+<div id="md" class="hid"><div class="sheet">
+  <label>科目名</label><input id="f-n">
+  <div class="row"><div><label>曜日</label><select id="f-d"></select></div><div><label>時限</label><select id="f-p"></select></div><div><label>楽度</label><select id="f-lv"></select></div></div>
+  <label>楽単度</label><div class="stars" id="s-e"></div>
+  <label>充実度</label><div class="stars" id="s-f"></div>
+  <label>良いところ</label><textarea id="f-g"></textarea>
+  <label>悪いところ</label><textarea id="f-b"></textarea>
+  <label>出席</label><select id="f-a"><option>未記入</option><option>あり</option><option>なし</option></select>
+  <label>備考</label><textarea id="f-m"></textarea>
+  <div class="acts"><button class="btn dng hid" id="del">削除</button><button class="btn" id="cl">閉じる</button><button class="btn pri hid" id="sv">保存</button></div>
+</div></div>
+
+<script>
+const PW='0655'; /* 管理者パスワード（ここを書き換える） */
+const KEY='rishu_v5',DAYS=['月','火','水','木','金','土'],PER=5,LV=['神単','楽単','準楽単','厳単'];
+/*DATA*/const DATA={"v":1790927029827,"c":[{"id":1,"d":1,"p":3,"n":"アジア文化(京劇)","lv":"楽単","ease":0,"fun":0,"good":"","bad":"","att":"未記入","memo":""},{"id":1790926617519,"d":0,"p":2,"n":"倫理学","lv":"楽単","ease":0,"fun":0,"good":"","bad":"","att":"未記入","memo":""},{"id":1790926634503,"d":0,"p":4,"n":"イスラーム文化","lv":"楽単","ease":4,"fun":0,"good":"","bad":"","att":"未記入","memo":""},{"id":1790926672628,"d":1,"p":4,"n":"アジ文(狛犬)","lv":"楽単","ease":0,"fun":0,"good":"","bad":"","att":"未記入","memo":""},{"id":1790926755025,"d":1,"p":2,"n":"法と心理","lv":"楽単","ease":0,"fun":0,"good":"","bad":"","att":"未記入","memo":""},{"id":1790926780357,"d":1,"p":2,"n":"ドイツ文化","lv":"楽単","ease":0,"fun":0,"good":"","bad":"","att":"未記入","memo":""},{"id":1790926791399,"d":4,"p":3,"n":"フラ語圏","lv":"楽単","ease":0,"fun":0,"good":"","bad":"","att":"未記入","memo":""},{"id":1790926832998,"d":2,"p":5,"n":"法と言語","lv":"楽単","ease":0,"fun":0,"good":"","bad":"","att":"未記入","memo":""},{"id":1790926846221,"d":3,"p":2,"n":"経済学","lv":"楽単","ease":0,"fun":0,"good":"","bad":"","att":"未記入","memo":""},{"id":1790926864895,"d":3,"p":2,"n":"心理学","lv":"楽単","ease":0,"fun":0,"good":"","bad":"","att":"未記入","memo":""},{"id":1790926955883,"d":2,"p":1,"n":"スポーツと社会","lv":"準楽単","ease":0,"fun":0,"good":"","bad":"","att":"未記入","memo":""},{"id":1790926968188,"d":2,"p":2,"n":"科学と技術","lv":"準楽単","ease":0,"fun":0,"good":"","bad":"","att":"未記入","memo":""},{"id":1790927009352,"d":0,"p":1,"n":"映リテ","lv":"楽単","ease":0,"fun":0,"good":"","bad":"","att":"未記入","memo":""}],"t":[{"id":1,"cat":"san","subj":"憲法","name":"大津","lv":"楽単","sum":"めっちゃ楽単。あたりの先生","rev":"テストはおーめいじで配られるプリント中心（空欄・赤字から出題）。範囲は1週間前にかなり絞られ、論述も事前にポイント説明あり","tip":"プリントの空欄・赤字を覚える。出席・小テスト・穴埋め対策をすれば単位はほぼ取れる。試験中に論述のヒントが出ることもある"},{"id":2,"cat":"san","subj":"憲法","name":"斎藤","lv":"準楽単","sum":"楽ではないが、やることが明確で対策はしやすい","rev":"試験中心（約90〜100%）。空欄補充（約40点）は判例ベース、授業内容から出題。授業全範囲が試験範囲","tip":"レジュメの用語・判例・学説を網羅的に暗記するのが最重要。範囲の絞り込みはなく、授業出席よりレジュメの理解と暗記"},{"id":3,"cat":"san","subj":"憲法","name":"江藤","lv":"準楽単","sum":"やや楽単。出席はきちんとする必要あり","rev":"出題範囲を事前提示。論述は3つ程度に絞られる。出席確認は全体で3回程度（いつかは不明）","tip":"事前に示される範囲・論述テーマを重点対策。レジュメを理解しておけば対応可能。毎回出席が無難"},{"id":4,"cat":"san","subj":"民法","name":"都筑","lv":"楽単","sum":"非常に取りやすい当たり・楽単。Sも狙える","rev":"テスト100%（出席・小テストなし）。過去問に非常に近い形式で正誤問題中心。50点程度でCの可能性あり","tip":"過去問を最低3年分、できれば5年分。範囲は授業中に3回ほど告知される。まれに過去問にない問題も出る"},{"id":5,"cat":"san","subj":"民法","name":"有賀","lv":"楽単","sum":"対策しやすく評価も取りやすい当たり。しっかりやればS十分","rev":"テスト100%（出席なし）。説明（約25点×2）＋論述（約50点）。復習問題ベースで、試験前に範囲が絞られる","tip":"レジュメの復習問題を完璧に。過去問はクラスウェブに掲載。丸暗記だけだとSはやや難しい。論述は多少不自然でも減点されにくい"},{"id":6,"cat":"san","subj":"民法","name":"長坂","lv":"厳単","sum":"はずれの先生。対策すれば取れるが負担大","rev":"テスト100%で論述形式。採点は厳しめで他の先生より難しい。論述の書き方に独自ルールあり","tip":"法的三段論法を使えるようにする。過去問を周回し、出題傾向を把握して重点対策"},{"id":7,"cat":"san","subj":"刑法","name":"川口","lv":"準楽単","sum":"授業はハズレだけど単位は取りやすい","rev":"平常点＋テスト。小テスト約30〜40%、期末約30〜40%、出席約10%。テストは比較的取りやすい","tip":"毎回の小テストで点を稼ぐ。授業が分かりにくいので自分でレジュメを整理。テスト前に範囲説明あり"},{"id":8,"cat":"san","subj":"刑法","name":"石井","lv":"準楽単","sum":"難しいけど落とさない。結果的に当たりという評価も多い","rev":"テスト100%（出席は取るが成績にはほぼ影響なし）。範囲は授業で扱った内容すべてで、対策が難しい","tip":""},{"id":9,"cat":"san","subj":"刑法","name":"阿部","lv":"楽単","sum":"過去問があればかなり取りやすいあたりの先生","rev":"テスト100%（出席なし）。前期は語句説明2問＋論述1問、後期は論述6題から2題選択","tip":"過去問対策が最重要。解答を自分で作って暗記。出題傾向が似ていて再現性が高く、ヤマが当たればSも可能"},{"id":10,"cat":"san","subj":"刑法","name":"内田","lv":"準楽単","sum":"楽単ではないが、しっかり対策すれば取れる","rev":"テスト100%。正誤問題3〜4題（配点大）＋論述3択1。教科書ベースで内容理解を重視","tip":"教科書の読み込みが最重要。条文解釈を通じた理由付けが必要。論述は学説対立を書くと高評価。理解不足だと落単の可能性あり"},{"id":11,"cat":"nichi","subj":"法日","name":"神田正行","lv":"厳単","sum":"対策にやや時間がかかる。クラスで5人くらい単位を落とす","rev":"テスト＋授業態度で判断。前期は授業中に指摘されたポイントから、後期は現代語訳＋論述（直前授業の内容）。年度で傾向が変わる可能性あり","tip":"授業中の指摘ポイントを押さえる。前期は授業を聞いているかが直結、後期は直前授業を重点復習"},{"id":12,"cat":"nichi","subj":"法日","name":"田島","lv":"準楽単","sum":"単位取得は比較的やさしめ。コツコツ出れば安定","rev":"平常点40%＋期末60%。春学期はテスト＋レポート、秋学期はテストのみ。旧字体の小テストが春秋ともに1回","tip":"授業中の参加（音読・受け答え）をしっかり。授業内容を理解しておけばテスト対策に困らない"},{"id":13,"cat":"nichi","subj":"法日","name":"伊藤","lv":"厳単","sum":"負担はやや大きめ。可もなく不可もなく（ややはずれ寄り）","rev":"授業参加度（確認テスト・発言・課題）50%＋期末50%。毎回小テスト、指名あり、予習前提で時間に厳しい","tip":"毎回の小テスト＋予習が重要。授業にしっかり参加しないと評価が下がりやすい"},{"id":14,"cat":"nichi","subj":"法日","name":"神田裕子","lv":"厳単","sum":"かなり厳しめ（はずれ寄り）。取れるが負担は大きい","rev":"春学期はレポート＋テスト、秋学期はテストのみ。時間制限が厳しい。指名あり、電子辞書必須、欠席は−5点など","tip":"授業出席＋ノートの理解・暗記が最重要。授業に出ていないとテスト対応が難しい"},{"id":15,"cat":"nichi","subj":"法日","name":"宍戸","lv":"楽単","sum":"やることが明確で取りやすい（あたり寄り）","rev":"講義を聞くスタイル。旧漢字のテスト（範囲指定・日程は事前告知）とレポート課題あり","tip":"漢字テストにしっかり取り組む。レポートは形式を守る。早めに準備すれば安定して取れる"},{"id":16,"cat":"nichi","subj":"法日","name":"上原","lv":"厳単","sum":"厳しめ＋理不尽さあり（はずれ寄り）。対策すればSも狙える","rev":"平常点＋レポート＋試験。前期は漢文の書き下し・現代語訳＋論述（計3000字程度）、後期は同様＋漢字・論述系の小テスト。レポートは評伝・課題図書","tip":"先生の説明を正確に再現できるかが重要。レポートは内容より形式。試験は時間勝負なので事前練習必須。授業は音読・指名中心で話が速く、録音推奨"},{"id":17,"cat":"nichi","subj":"法日","name":"唐澤","lv":"","sum":"","rev":"平常点（授業中の態度や発言）と提出物50%、学期末試験50%。文学作品（国木田独歩、森鴎外など）を多く扱う","tip":""}]};/*END*/
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function init(){let st=null;try{st=JSON.parse(localStorage.getItem(KEY))}catch(e){}const D=st&&st.v>=DATA.v&&st.c&&st.t?st:DATA;courses=D.c.map(x=>({...x}));T=D.t.map(x=>({...x}))}
+function save(){try{localStorage.setItem(KEY,JSON.stringify({v:Date.now(),c:courses,t:T}))}catch(e){}}
+let courses=[],T=[],admin=false,cur=null,isNew=false,tab='tt',sub='憲法';
+
+/* 二度押しで実行 */
+function sure(b,fn){if(b.dataset.s){delete b.dataset.s;b.textContent=b.dataset.t;fn();return}b.dataset.t=b.textContent;b.dataset.s=1;b.textContent='本当に？';setTimeout(()=>{if(b.dataset.s){delete b.dataset.s;b.textContent=b.dataset.t}},2500)}
+
+function grid(){
+  let h='<table><thead><tr><th></th>'+DAYS.map(d=>`<th>${d}</th>`).join('')+'</tr></thead><tbody>';
+  for(let p=1;p<=PER;p++){h+=`<tr><th>${p}</th>`;
+    for(let d=0;d<6;d++)h+=`<td data-d="${d}" data-p="${p}">`+courses.filter(c=>c.d===d&&c.p===p).map(c=>`<div class="card" data-id="${c.id}" data-lv="${c.lv}"><b>${esc(c.n)}</b><small>${c.lv}</small></div>`).join('')+'</td>';
+    h+='</tr>'}
+  $('#grid').innerHTML=h+'</tbody></table>';
+}
+
+/* 長押しドラッグでコマ移動（管理者のみ） */
+let drag=null,timer=null,sx=0,sy=0,sup=false;
+const G=$('#grid');
+G.addEventListener('pointerdown',e=>{
+  const el=e.target.closest('.card');if(!el||!admin)return;
+  sx=e.clientX;sy=e.clientY;
+  timer=setTimeout(()=>{
+    const g=el.cloneNode(true);g.style.cssText=`position:fixed;pointer-events:none;width:${el.offsetWidth}px;opacity:.85;z-index:99;box-shadow:0 4px 14px rgba(0,0,0,.3)`;
+    document.body.append(g);el.style.opacity=.3;drag={id:+el.dataset.id,g,el};sup=true;mv(e);
+  },450);
+});
+function mv(e){if(!drag)return;drag.g.style.left=(e.clientX-drag.g.offsetWidth/2)+'px';drag.g.style.top=(e.clientY-20)+'px';
+  document.querySelectorAll('td.over').forEach(t=>t.classList.remove('over'));
+  const t=document.elementFromPoint(e.clientX,e.clientY)?.closest('td[data-d]');if(t)t.classList.add('over')}
+document.addEventListener('pointermove',e=>{
+  if(timer&&!drag&&Math.hypot(e.clientX-sx,e.clientY-sy)>10){clearTimeout(timer);timer=null}
+  mv(e)});
+document.addEventListener('touchmove',e=>{if(drag)e.preventDefault()},{passive:false});
+function end(e){
+  clearTimeout(timer);timer=null;
+  if(drag){
+    const t=document.elementFromPoint(e.clientX,e.clientY)?.closest('td[data-d]');
+    if(t&&e.type==='pointerup'){const c=courses.find(x=>x.id===drag.id);c.d=+t.dataset.d;c.p=+t.dataset.p;save()}
+    drag.g.remove();drag=null;document.querySelectorAll('td.over').forEach(x=>x.classList.remove('over'));grid();
+    setTimeout(()=>sup=false,50);
+  }
+}
+document.addEventListener('pointerup',end);document.addEventListener('pointercancel',end);
+G.addEventListener('click',e=>{
+  if(sup)return;const el=e.target.closest('.card');if(!el)return;
+  openM({...courses.find(c=>c.id===+el.dataset.id)},false);
+});
+G.addEventListener('contextmenu',e=>{if(admin)e.preventDefault()});
+
+/* 評価シート */
+function stars(el,key){el.innerHTML='';for(let i=1;i<=5;i++){const b=document.createElement('button');b.type='button';b.textContent='★';b.setAttribute('aria-label',i+'点');if(cur[key]>=i)b.className='on';
+  if(admin)b.onclick=()=>{cur[key]=cur[key]===i?0:i;stars(el,key)};else b.disabled=true;el.append(b)}}
+function openM(c,n){
+  cur=c;isNew=n;
+  $('#f-d').innerHTML=DAYS.map((d,i)=>`<option value="${i}">${d}</option>`).join('');
+  $('#f-p').innerHTML=Array.from({length:PER},(_,i)=>`<option value="${i+1}">${i+1}限</option>`).join('');
+  $('#f-lv').innerHTML=LV.map(l=>`<option>${l}</option>`).join('');
+  $('#f-n').value=c.n;$('#f-d').value=c.d;$('#f-p').value=c.p;$('#f-lv').value=c.lv;
+  $('#f-g').value=c.good;$('#f-b').value=c.bad;$('#f-a').value=c.att;$('#f-m').value=c.memo;
+  document.querySelectorAll('#md input,#md select,#md textarea').forEach(x=>x.disabled=!admin);
+  stars($('#s-e'),'ease');stars($('#s-f'),'fun');
+  $('#sv').classList.toggle('hid',!admin);$('#del').classList.toggle('hid',!admin||n);
+  $('#md').classList.remove('hid');
+}
+$('#cl').onclick=()=>$('#md').classList.add('hid');
+$('#md').addEventListener('click',e=>{if(e.target.id==='md')$('#md').classList.add('hid')});
+$('#sv').onclick=()=>{
+  const n=$('#f-n').value.trim();if(!n){$('#f-n').focus();return}
+  Object.assign(cur,{n,d:+$('#f-d').value,p:+$('#f-p').value,lv:$('#f-lv').value,good:$('#f-g').value,bad:$('#f-b').value,att:$('#f-a').value,memo:$('#f-m').value});
+  if(isNew)courses.push(cur);else courses[courses.findIndex(c=>c.id===cur.id)]=cur;
+  save();grid();$('#md').classList.add('hid');
+};
+$('#del').onclick=function(){sure(this,()=>{courses=courses.filter(c=>c.id!==cur.id);save();grid();$('#md').classList.add('hid')})};
+
+/* 先生別マニュアル（三法・法日） */
+function man(){
+  const subj=tab==='san'?sub:'法日';
+  let h=tab==='san'?'<div class="pills">'+['憲法','民法','刑法'].map(s=>`<button data-s="${s}" class="${s===sub?'on':''}">${s}</button>`).join('')+'</div>':'';
+  h+=MAN.filter(m=>m[0]===subj).map(m=>`<details><summary><b>${m[1]}先生</b><span>${esc(m[2]||'総評の記載なし')}</span></summary><dl><dt>評価・テスト</dt><dd>${esc(m[3])}</dd>${m[4]?`<dt>対策</dt><dd>${esc(m[4])}</dd>`:''}</dl></details>`).join('');
+  $('#man').innerHTML=h;
+}
+$('#man').addEventListener('click',e=>{const b=e.target.closest('[data-s]');if(b){sub=b.dataset.s;man()}});
+$('#tabs').addEventListener('click',e=>{
+  const b=e.target.closest('[data-t]');if(!b)return;tab=b.dataset.t;
+  document.querySelectorAll('#tabs button').forEach(x=>x.classList.toggle('on',x===b));
+  $('#tt').classList.toggle('hid',tab!=='tt');$('#man').classList.toggle('hid',tab==='tt');
+  if(tab!=='tt')man();
+});
+
+/* 管理者モード */
+$('#go').onclick=()=>{
+  if($('#pw').value!==PW){$('#pw').value='';$('#pw').placeholder='パスワードが違います';return}
+  admin=true;$('#lg').classList.add('hid');
+  const a=$('#ad');a.classList.remove('hid');
+  a.innerHTML='<button class="btn pri" id="add">追加</button><button class="btn" id="exp">HTML書き出し</button><button class="btn" id="prt">PDF保存（印刷）</button><button class="btn" id="out">ログアウト</button>';
+  if(tab!=='tt')man();$('#hint').textContent='管理者モード：追加・削除・評価の編集ができます。コマを長押ししてドラッグすると移動できます。';
+  $('#add').onclick=()=>tab!=='tt'?openT(null):openM({id:Date.now(),d:0,p:1,n:'',lv:'楽単',ease:0,fun:0,good:'',bad:'',att:'未記入',memo:''},true);
+  $('#exp').onclick=exportHTML;
+  $('#prt').onclick=()=>print();
+  $('#out').onclick=()=>{admin=false;man();$('#ad').classList.add('hid');$('#lg').classList.remove('hid');$('#pw').value='';$('#ex').classList.add('hid');$('#hint').textContent='コマをタップすると評価を見られます。'};
+};
+init();grid();
+const CAT={san:'三法',nichi:'法日',lang:'言語'};
+const ln=n=>esc(n)+(/先生$/.test(n)?'':'先生');
+function tc(m){return `<details><summary><div><b>${ln(m.name)}</b><span>${m.subj?esc(m.subj)+'　':''}${esc(m.sum||'総評の記載なし')}</span></div><div class="rt">${m.lv?`<i class="bd" data-lv="${m.lv}">${m.lv}</i>`:''}${admin?`<button class="btn ed" data-id="${m.id}">編集</button>`:''}</div></summary><dl>${m.rev?`<dt>評価・テスト</dt><dd>${esc(m.rev)}</dd>`:''}${m.tip?`<dt>対策</dt><dd>${esc(m.tip)}</dd>`:''}</dl></details>`}
+function man(){
+  if(tab==='tt')return;
+  const L=T.filter(m=>m.cat===tab),ss=[...new Set(L.map(m=>m.subj))];
+  if(!ss.includes(sub))sub=ss[0]||'';
+  const pills=ss.length>1?'<div class="pills">'+ss.map(x=>`<button data-s="${esc(x)}" class="${x===sub?'on':''}">${esc(x)}</button>`).join('')+'</div>':'';
+  const v=ss.length>1?L.filter(m=>m.subj===sub):L;
+  $('#man').innerHTML=pills+(v.map(tc).join('')||`<p class="note">まだ先生が登録されていません。${admin?'上の追加ボタンから登録できます。':''}</p>`);
+}
+let tm=null,tNew=false;
+function openT(m){
+  tNew=!m;tm=m?{...m}:{id:Date.now(),cat:tab,subj:tab==='nichi'?'法日':sub,name:'',lv:'',sum:'',rev:'',tip:''};
+  $('#t-c').value=tm.cat;$('#t-s').value=tm.subj;$('#t-n').value=tm.name;$('#t-l').value=tm.lv;$('#t-m').value=tm.sum;$('#t-r').value=tm.rev;$('#t-t').value=tm.tip;
+  $('#t-sl').innerHTML=[...new Set(T.map(x=>x.subj))].map(x=>`<option value="${esc(x)}">`).join('');
+  $('#t-del').classList.toggle('hid',tNew);$('#tm').classList.remove('hid');
+}
+document.addEventListener('click',e=>{const b=e.target.closest('.ed');if(!b)return;e.preventDefault();openT(T.find(x=>x.id===+b.dataset.id))});
+$('#t-cl').onclick=()=>$('#tm').classList.add('hid');
+$('#tm').addEventListener('click',e=>{if(e.target.id==='tm')$('#tm').classList.add('hid')});
+$('#t-sv').onclick=()=>{
+  const n=$('#t-n').value.trim();if(!n){$('#t-n').focus();return}
+  Object.assign(tm,{cat:$('#t-c').value,subj:$('#t-s').value.trim(),name:n,lv:$('#t-l').value,sum:$('#t-m').value,rev:$('#t-r').value,tip:$('#t-t').value});
+  if(tNew)T.push(tm);else T[T.findIndex(x=>x.id===tm.id)]=tm;
+  if(tm.cat===tab)sub=tm.subj;
+  save();$('#tm').classList.add('hid');man();
+};
+$('#t-del').onclick=function(){sure(this,()=>{T=T.filter(x=>x.id!==tm.id);save();$('#tm').classList.add('hid');man()})};
+function toast(t){const e=$('#toast');e.textContent=t;e.classList.remove('hid');setTimeout(()=>e.classList.add('hid'),5000)}
+async function exportHTML(){
+  const d=JSON.stringify({v:Date.now(),c:courses,t:T}).replace(/</g,'\\u003c');
+  try{
+    const r=await fetch(location.href.split('#')[0]);if(!r.ok)throw 0;let h=await r.text();
+    h=h.replace(new RegExp('/\\*DA'+'TA\\*/[\\s\\S]*?/\\*EN'+'D\\*/'),()=>'/*DA'+'TA*/const DATA='+d+';/*EN'+'D*/');
+    const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([h],{type:'text/html'}));a.download='index.html';a.click();
+    toast('index.html を書き出しました。GitHubに上書きアップロードすると、みんなの画面に反映されます。');
+  }catch(e){const t=$('#ex');t.value=d;t.classList.remove('hid');t.select();toast('自動で書き出せなかったため、データを下に表示しました。')}
+}
+</script></body></html>
